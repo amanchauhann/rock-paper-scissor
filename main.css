@@ -1,0 +1,27 @@
+body{
+    background-color: brown;
+}
+
+main{
+    border: 2px solid black;
+    max-width: fit-content;
+    margin: auto;
+    font-size: xx-large;
+}
+
+span{
+    color: rgb(60, 219, 63);
+    text-decoration: underline;
+    text-transform: capitalize;
+}
+
+button{
+    min-width: 100px;
+    background-color: blueviolet;
+    height: 40px;
+    margin-top: 40px;
+    border-radius: 10px;
+    font-size: large;
+    color: white;
+    cursor: pointer;
+}
