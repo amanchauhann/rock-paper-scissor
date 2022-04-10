@@ -1,16 +1,50 @@
-const doyou = confirm("Do you want to play Rock paper scissors");
-if(doyou){
-    const playerChance = prompt("Pick yor chance?");
-    console.log(playerChance.trim());
+const computerChoiceDisplay = document.getElementById("computerChoice");
+const playerChoiceDisplay = document.getElementById("playerChoice");
+const resultDisplay = document.getElementById("result");
 
-    // if(playerChance || playerChance === ""){
-    //     const fg = playerChance.trim();
-    //     console.log(fg);
-    // // pick your chance
-    // }else{
-    //     console.log("next time");
-    // }
-    // do you want to play rpc
-}else{
-    console.log("Okay, as you wish it is your loss")
+const buttons = document.querySelectorAll("button");
+
+// const clickhandler= () => {
+//     console.log("fsnfbg")
+// }
+let computerChoice;
+let playerChoice;
+let result;
+
+buttons.forEach(button => button.addEventListener("click", (e)=>{
+    playerChoice = e.target.id;
+    playerChoiceDisplay.innerText = playerChoice;
+    computerChoiceDisplay.innerText = computerChoice;
+    computerChance();
+    getResult();
+}))
+
+const computerChance = () => {
+    const randomNumber = Math.floor((Math.random() * buttons.length)+1);
+    if(randomNumber === 1){
+        computerChoice = "rock"
+    }if (randomNumber === 2){
+    computerChoice =  "paper"
+    }if(randomNumber === 3){
+        computerChoice =  "scissors"
+    }
+}
+
+const getResult = () => {
+    if(computerChoice === playerChoice){
+        result = "It's a tie."
+    }if(computerChoice === "rock" && playerChoice === "scissors" ){
+        result = "Computer wins"
+    }if(computerChoice === "paper" && playerChoice === "rock" ){
+        result = "Computer wins"
+    }if(computerChoice === "scissors" && playerChoice === "paper" ){
+        result = "Computer wins"
+    }if(computerChoice === "rock" && playerChoice === "paper" ){
+        result = "Player wins"
+    }if(computerChoice === "paper" && playerChoice === "scissors" ){
+        result = "Player wins"
+    }if(computerChoice === "scissors" && playerChoice === "rock" ){
+        result = "Player wins"
+    }
+    resultDisplay.innerText = result;
 }
