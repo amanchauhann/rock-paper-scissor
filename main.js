@@ -14,8 +14,8 @@ let result;
 buttons.forEach(button => button.addEventListener("click", (e)=>{
     playerChoice = e.target.id;
     playerChoiceDisplay.innerText = playerChoice;
-    computerChoiceDisplay.innerText = computerChoice;
     computerChance();
+    computerChoiceDisplay.innerText = computerChoice;
     getResult();
 }))
 
@@ -39,12 +39,19 @@ const getResult = () => {
         result = "Computer wins"
     }if(computerChoice === "scissors" && playerChoice === "paper" ){
         result = "Computer wins"
-    }if(computerChoice === "rock" && playerChoice === "paper" ){
-        result = "Player wins"
-    }if(computerChoice === "paper" && playerChoice === "scissors" ){
-        result = "Player wins"
-    }if(computerChoice === "scissors" && playerChoice === "rock" ){
-        result = "Player wins"
+    }else{
+        result = "player Wins"
     }
     resultDisplay.innerText = result;
 }
+
+
+
+
+// if(computerChoice === "rock" && playerChoice === "paper" ){
+//     result = "Player wins"
+// }if(computerChoice === "paper" && playerChoice === "scissors" ){
+//     result = "Player wins"
+// }if(computerChoice === "scissors" && playerChoice === "rock" ){
+//     result = "Player wins"
+// }
